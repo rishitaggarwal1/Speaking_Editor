@@ -4,30 +4,62 @@
 <div class="container-fluid">
     <div class="card text-center">
         <div class="card-header">
-            <h2>Enter or Upload any file.</h2>
+            <h2>Enter or Upload</h2>
         </div>
     <div>
+    {% comment %} Main Body {% endcomment %}
     <div class="card-body">
         <form action="{% url 'home' %}" method="post">
         {% csrf_token %}
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-8 col-12">
+                    {% comment %} Text Area {% endcomment %}
                         <div class="input-group">
                             <textarea name="text" style="resize:none; height:40vh;" placeholder="Enter your text." class="form-control" aria-label="With textarea"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-12">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    <br>
+                    <br>
+                    <br>
+                    {% comment %} Choose File {% endcomment %}
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="upload">
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file.</label>
+                        </div>
+                        <label style="font-size:10pt;font-style:italic;color:red;">(Only docs,pdf).</label>
+                        <br>
+                        <br>
+                        {% comment %} Voice {% endcomment %}
+                        <div class="row justify-content-center">
+                        <h4 style="margin-right:25px;">Sound:</h4>
+                            <div class="custom-control custom-radio" style="margin-top:5px;">
+                                <input type="radio" class="custom-control-input" id="customControlValidation2" name="sound" value="0" required>
+                                <label class="custom-control-label" for="customControlValidation2">Male</label>
                             </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file   <span style="color:red;font-size:10pt; font-style:italic;">(Only docs, pdf)</span></label>
+                            <div class="custom-control custom-radio mb-3" style="margin-left:10px; margin-top:5px;">
+                                <input type="radio" class="custom-control-input" id="customControlValidation3" name="sound" required value="1">
+                                <label class="custom-control-label" for="customControlValidation3">Female</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success btn-lg" style="width:20vw;" name="play">Play</button
+
+                        <div class="row justify-content-center">
+                            <h4 style="margin-right:20px;">Rate:</h4>
+                            <div class="form-group">
+                                <input type="range" class="form-control-range" min="25" max="200">
+                            </div>
+                        </div>
+
+                        {% comment %} Play and Download {% endcomment %}
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 com-sm-6 col-6 justify-content-center">
+                                <button type="submit" class="btn btn-success btn-lg" name="play">Play</button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 com-sm-6 col-6 justify-content-center">
+                                <button type="submit" class="btn btn-primary btn-lg" name="download">Download</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
