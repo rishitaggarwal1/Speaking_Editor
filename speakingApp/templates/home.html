@@ -1,12 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% comment %} <form action="{% url 'home' %}" method="post">
-{% csrf_token %}
-<input type="text" name="text">
-<button type="submit">Submit</button>
-</form> {% endcomment %}
-
-
+<div class="container-fluid">
+    <div class="card text-center">
+        <div class="card-header">
+            <h2>Enter or Upload any file.</h2>
+        </div>
+    <div>
+    <div class="card-body">
+        <form action="{% url 'home' %}" method="post">
+        {% csrf_token %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-12">
+                        <div class="input-group">
+                            <textarea name="text" style="resize:none; height:40vh;" placeholder="Enter your text." class="form-control" aria-label="With textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file   <span style="color:red;font-size:10pt; font-style:italic;">(Only docs, pdf)</span></label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg" style="width:20vw;" name="play">Play</button
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 {% endblock  %}

@@ -11,7 +11,7 @@ def home(request):
         volume = engine.getProperty('volume')
         engine.setProperty('volume', 1.0)
         voices = engine.getProperty('voices')
-        engine.setProperty('voice', voices[1].id)
+        engine.setProperty('voice', voices[0].id)
         engine.say(text)
         engine.runAndWait()
     return render(request, 'home.html', {})
